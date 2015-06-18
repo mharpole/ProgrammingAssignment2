@@ -49,8 +49,12 @@ cacheSolve <- function(x, ...) {
 		message("getting cached data")
 		return(i)
 	}
+	
 	matrix_temp <- x$get()  # if inverse is null access matrix
+	
 	i <- solve(matrix_temp) # generate inverse of the matrix
+	
 	x$setinverse(i)        	# set the inverse in the cached matrix
+	
 	i			            # return the inverse
 }
