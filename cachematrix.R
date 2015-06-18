@@ -39,18 +39,18 @@ makeCacheMatrix <- function(x = matrix()) {
 ## and return it.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-		##Access the special matrix and get what is stored in the inverse 
-		##variable
-		i <- x$getinverse()
+    ## Return a matrix that is the inverse of 'x'
+	##Access the special matrix and get what is stored in the inverse 
+	##variable
+	i <- x$getinverse()
 		
-		#check to see if the inverse variable is empty by checking if it is NULL
-		if(!is.null(i)){
-			message("getting cached data")
-			return(i)
-		}
-		matrix_temp <- x$get()  # if inverse is null access matrix
-		i <- solve(matrix_temp) # generate inverse of the matrix
-    x$setinverse(i)         	# set the inverse in the cached matrix
-		i			            # return the inverse
+	#check to see if the inverse variable is empty by checking if it is NULL
+	if(!is.null(i)){
+		message("getting cached data")
+		return(i)
+	}
+	matrix_temp <- x$get()  # if inverse is null access matrix
+	i <- solve(matrix_temp) # generate inverse of the matrix
+	x$setinverse(i)        	# set the inverse in the cached matrix
+	i			            # return the inverse
 }
